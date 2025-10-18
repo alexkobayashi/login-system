@@ -65,9 +65,24 @@ if (window.location.pathname.includes('dabrd.html')) {
             document.getElementById('userEmail').textContent = session.user.email;
         }
     });
+}
 
-    document.getElementById('logoutBtn')?.addEventListener('click', async () => {
-        await supabase.auth.signOut();
-        window.location.href = 'index.html';
-    });
+// Função de Logout
+async function handleLogout() {
+    try {
+        const { error } = await supabase.auth.signOut();
+        if (error) {
+            showMessage('Erro ao fazer logout: ' + error.message, true);
+        } else {
+            showMessage('Logout realizado com sucesso!');
+            setTimeout(() => window.location.href = 'index.html', 1000);
+        }
+    } catch (error) {
+        showMessage('Erro inesperado ao fazer logout', true);
+    }
+}
+
+// Adicionar evento de logout ao botão quando existir
+if (document.getElementById('logoutBtn')) {
+    document.getElementById('logoutBtn').addEventListener('click', handleLogout);
 }
