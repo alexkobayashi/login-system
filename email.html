@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Cadastro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .email-container {
+            max-width: 600px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        .content {
+            padding: 40px 30px;
+            color: #333;
+            line-height: 1.8;
+        }
+        .content h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .button-container {
+            text-align: center;
+            margin: 35px 0;
+        }
+        .confirm-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .confirm-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .footer {
+            background: #f5f5f5;
+            padding: 30px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>🎉 Bem-vindo!</h1>
+            <p>Estamos felizes em tê-lo conosco</p>
+        </div>
+        
+        <div class="content">
+            <h2>Olá, [Nome do Usuário]!</h2>
+            
+            <p>Obrigado por se cadastrar em nossa plataforma. Estamos empolgados para começar esta jornada com você!</p>
+            
+            <p>Para ativar sua conta e começar a aproveitar todos os nossos recursos, por favor confirme seu endereço de email clicando no botão abaixo:</p>
+            
+            <div class="button-container">
+                <a href="{{ .ConfirmationURL }}" class="confirm-button">Confirmar Email</a>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>⏰ Este link expira em 24 horas.</strong></p>
+                <p>Se você não criou esta conta, pode ignorar este email com segurança.</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <p>Se o botão não funcionar, copie e cole o link abaixo no seu navegador:</p>
+            <p style="color: #667eea; word-break: break-all; font-size: 14px;">
+                {{ .ConfirmationURL }}  
+            </p>
+            
+            <p style="margin-top: 30px;">Caso tenha alguma dúvida, nossa equipe de suporte está sempre pronta para ajudar!</p>
+        </div>
+        
+        <div class="footer">
+            <--! <p><strong>Sua Empresa</strong></p>
+            <p>Rua Exemplo, 123 - São Paulo, SP</p>
+            <p>contato@suaempresa.com.br | (11) 1234-5678</p>
+        -->
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 12px; color: #999;">
+                © 2025 Alex Kobayashi. Todos os direitos reservados.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
