@@ -86,3 +86,20 @@ async function handleLogout() {
 if (document.getElementById('logoutBtn')) {
     document.getElementById('logoutBtn').addEventListener('click', handleLogout);
 }
+
+
+// Verificar se há um token de confirmação na URL
+useEffect(() => {
+  const { data: authListener } = supabase.auth.onAuthStateChange(
+    async (event, session) => {
+      if (event === 'SIGNED_IN') {
+        // Usuário confirmou o email e está logado
+        router.push('/dabrd.html')
+      }
+    }
+  )
+
+  return () => {
+    authListener.subscription.unsubscribe()
+  }
+}, [])
