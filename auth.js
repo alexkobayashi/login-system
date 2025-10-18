@@ -30,7 +30,7 @@ if (document.getElementById('loginForm')) {
             showMessage('Erro: ' + error.message, true);
         } else {
             showMessage('Login realizado com sucesso!');
-            setTimeout(() => window.location.href = 'dashboard.html', 1000);
+            setTimeout(() => window.location.href = 'dabrd.html', 1000);
         }
     });
 }
@@ -57,7 +57,7 @@ if (document.getElementById('registerForm')) {
 }
 
 // Dashboard - Verificar se está logado
-if (window.location.pathname.includes('dashboard.html')) {
+if (window.location.pathname.includes('dabrd.html')) {
     supabase.auth.getSession().then(({ data: { session } }) => {
         if (!session) {
             window.location.href = 'index.html';
